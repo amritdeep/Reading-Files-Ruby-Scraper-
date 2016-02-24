@@ -4,10 +4,9 @@ require 'csv'
 zip = []
 
 CSV.foreach("example2.csv") do |row|
-	puts row.inspect
+	zip << row[2]
 end
 
 
-puts zip.count
 
 
