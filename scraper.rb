@@ -4,10 +4,10 @@ require 'csv'
 zip = []
 user_rating = []
 
-CSV.foreach("internet-providers.csv") do |row|
+CSV.foreach("example.csv") do |row|
+	binding.pry
 	zip << row[0]
-	user_rating << row[3]
-	puts "#{zip} && #{user_rating}"
+	# user_rating << row[3]
 end
 
 binding.pry
