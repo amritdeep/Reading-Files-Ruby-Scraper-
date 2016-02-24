@@ -5,6 +5,7 @@ require 'zip'
 
 name = []
 file_name = []
+output = []
 zipfile_name = "Fund IIQ 4Q15 PCAP PDFs Q.zip"
 
 ## Move Name column data from sheet to name array
@@ -16,16 +17,6 @@ end
 Zip::File.open('Fund IIQ 4Q15 PCAP PDFs Q.zip') do |zip_file|
   # Handle entries one by one
   zip_file.each do |entry|
-    # if entry.directory?
-    #   puts "#{entry.name} is a folder!"
-    # elsif entry.symlink?
-    #   puts "#{entry.name} is a symlink!"
-    # elsif entry.file?
-    #   puts "#{entry.name} is a regular file!"
-    # else
-    #   puts "#{entry.name} is something unknown, oops!"
-    # end
-
     entry_name = entry.name.gsub("KPEO II(Q), LP - 4Q15 Capital Statements - ", "")
     entry_pdf = entry_name.gsub(".pdf", "")
 
@@ -35,5 +26,14 @@ end
 
 name = name.compact
 
-puts name
+# binding.pry
 
+output = name & file_name
+
+puts "#{output} data are fount" unless output.empty?
+
+# if output.empty?
+# 	puts "There is no data"
+# else
+# 	puts "#{output} are found"	
+# end
