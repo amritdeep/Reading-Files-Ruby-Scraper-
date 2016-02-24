@@ -2,11 +2,14 @@ require 'rubygems'
 require 'pry'
 require 'csv'
 require 'zip'
+require 'logger'
 
 name = []
 file_name = []
 output = []
 zipfile_name = "Fund IIQ 4Q15 PCAP PDFs Q.zip"
+
+logger = Logger.new('logfile.log')
 
 ## Move Name column data from sheet to name array
 CSV.foreach("example2.csv") do |row|
@@ -25,8 +28,6 @@ Zip::File.open('Fund IIQ 4Q15 PCAP PDFs Q.zip') do |zip_file|
 end
 
 name = name.compact
-
-# binding.pry
 
 output = name & file_name
 
