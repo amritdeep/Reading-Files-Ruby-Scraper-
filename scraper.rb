@@ -29,9 +29,12 @@ end
 
 name = name.compact
 
-output = name & file_name
+puts name
+puts file_name
 
-puts "#{output} data are fount" unless output.empty?
+# output = name & file_name
+
+# puts "#{output} data are fount" unless output.empty?
 
 # if output.empty?
 # 	puts "There is no data"
